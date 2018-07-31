@@ -20,4 +20,18 @@ router.get('/', (req, res) => {
     });
 });
 
+router.post('/', (req, res) => {
+  console.log('req is: ', req);
+  // once I add get request to front-end, decide/figure out how data is coming through
+  // use 'query'?
+  db.none('INSERT INTO Strings VALUES($1)', ['yik yak'])
+    .then(() => {
+      console.log('String successfully inserted into database');
+      res.end();
+    })
+    .catch(error => {
+      console.log('Error while inserting string to database: ', error);
+    });
+});
+
 module.exports = router;
