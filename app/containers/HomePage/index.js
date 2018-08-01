@@ -10,16 +10,19 @@
  */
 
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
-import messages from './messages';
+import Ul from 'components/Ul';
+import Li from 'components/ListItem';
 
 /* eslint-disable react/prefer-stateless-function */
 export default class HomePage extends React.PureComponent {
   render() {
     return (
-      <h1>
-        <FormattedMessage {...messages.header} />
-      </h1>
+      <div>
+        <Ul>
+          <Li> Example item </Li>
+          <Li> Example item #2 </Li>
+        </Ul>
+      </div>
     );
   }
 }

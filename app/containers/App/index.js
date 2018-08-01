@@ -12,21 +12,35 @@
  */
 
 import React from 'react';
+import styled from 'styled-components';
 import { Switch, Route } from 'react-router-dom';
 
 import HomePage from 'containers/HomePage/Loadable';
-// import NotFoundPage from 'containers/NotFoundPage/Loadable';
+import SubmitPage from 'containers/SubmitPage/Loadable';
 
 import Header from 'components/Header';
+import H1 from 'components/H1';
+
+const AppWrapper = styled.div`
+  max-width: calc(768px + 16px * 2);
+  margin: 0 auto;
+  display: flex;
+  min-height: 100%;
+  padding: 0 16px;
+  flex-direction: column;
+`;
 
 export default function App() {
   return (
     <div>
-      <Header />
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        {/* <Route component={NotFoundPage} /> */}
-      </Switch>
+      <AppWrapper>
+        <Header />
+        <H1>Dovenmuehle String Extravaganza</H1>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/submit" component={SubmitPage} />
+        </Switch>
+      </AppWrapper>
     </div>
   );
 }
