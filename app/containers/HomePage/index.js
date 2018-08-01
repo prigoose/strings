@@ -10,18 +10,18 @@
  */
 
 import React from 'react';
-import Ul from 'components/Ul';
-import Li from 'components/ListItem';
+import List from 'components/Ul';
+import Item from 'components/ListItem';
 
 /* eslint-disable react/prefer-stateless-function */
 export default class HomePage extends React.PureComponent {
   render() {
     return (
       <div>
-        <Ul>
-          <Li> Example item </Li>
-          <Li> Example item #2 </Li>
-        </Ul>
+        <List>
+          <Item> Example item </Item>
+          <Item> Example item #2 </Item>
+        </List>
       </div>
     );
   }

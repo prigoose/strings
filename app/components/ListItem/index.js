@@ -1,11 +1,6 @@
 import styled from 'styled-components';
 
-const Item = styled.li`
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  height: 100%;
-  align-items: center;
-`;
+// placeholder for future styling
+const Item = styled.li``;
 
 export default Item;

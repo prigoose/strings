@@ -1,12 +1,6 @@
 import styled from 'styled-components';
 
-const Ul = styled.ul`
-  list-style: none;
-  margin: 0;
-  width: 100%;
-  max-height: 30em;
-  overflow-y: auto;
-  padding: 0 1em;
-`;
+// placeholder for future styling
+const List = styled.ul``;
 
-export default Ul;
+export default List;
