@@ -1,12 +1,10 @@
 import { createSelector } from 'reselect';
 import { initialState } from './reducer';
 
-// const selectSubmitPageGenerator = state =>
-//   state.get('submitPageGenerator', initialState);
+const selectSubmit = state =>
+  state.get('submitpagegenerator', initialState);
 
 const makeSelectCurrentString = () =>
-  createSelector(initialState => initialState.currentString, 
-    currentString => currentString,
-  );
+  createSelector(selectSubmit, submitState => submitState.get('currentString'));
 
 export { makeSelectCurrentString };

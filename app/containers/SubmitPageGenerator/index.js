@@ -17,7 +17,7 @@ import {
   makeSelectDbError,
   makeSelectValue,
 } from 'containers/App/selectors';
-import { submitString } from 'containers/App/actions';
+import { postStringToDb } from 'containers/App/actions';
 import { changeString } from './actions';
 import { makeSelectCurrentString } from './selectors';
 import reducer from './reducer';
@@ -62,14 +62,13 @@ function mapDispatchToProps(dispatch) {
   return {
     onChangeString: evt => {
       evt.preventDefault();
-      console.log('in change string: ', evt.target.value);
       dispatch(changeString(evt.target.value));
     },
     onSubmitForm: evt => {
       if (evt !== undefined && evt.preventDefault) evt.preventDefault();
       // const value = event.target.find([name='string'].val);
-      console.log('submitString', submitString());
-      dispatch(submitString());
+      console.log('in onSubmitForm')
+      dispatch(postStringToDb());
     },
   };
 }

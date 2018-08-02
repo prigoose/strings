@@ -12,7 +12,4 @@
 export const LOAD_STRINGS = 'strings/App/LOAD_STRINGS';
 export const LOAD_STRINGS_SUCCESS = 'strings/App/LOAD_STRINGS_SUCCESS';
 export const LOAD_STRINGS_ERROR = 'strings/App/LOAD_STRINGS_ERROR';
-export const INSERT_STRING = 'strings/App/INSERT_STRING';
-export const INSERT_STRING_SUCCESS = 'strings/App/INSERT_STRING_SUCCESS';
-export const INSERT_STRING_ERROR = 'strings/App/INSERT_STRING_ERROR';
-export const UPDATE_VALUE = 'strings/App/UPDATE_VALUE';
+export const POST_STRING_TO_DB = 'strings/App/POST_STRING_TO_DB';

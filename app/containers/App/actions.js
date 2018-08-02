@@ -19,10 +19,7 @@ import {
   LOAD_STRINGS,
   LOAD_STRINGS_SUCCESS,
   LOAD_STRINGS_ERROR,
-  INSERT_STRING,
-  INSERT_STRING_SUCCESS,
-  INSERT_STRING_ERROR,
-  UPDATE_VALUE,
+  POST_STRING_TO_DB,
 } from './constants';
 
 /**
@@ -62,36 +59,11 @@ export function stringLoadingError(error) {
  *
  * @return {object} An action object with a type of INSERT_STRING
  */
-export function submitString(string) {
+export function postStringToDb() {
+  console.log('in postStringToDb action')
   return {
-    type: INSERT_STRING,
-    string,
+    type: POST_STRING_TO_DB,
   };
 }
 
-/**
- * Dispatched when the string is inserting into the database
- *
- * @param  {string} string The data
- *
- * @return {object}      An action object with a type of LOAD_STRINGS_SUCCESS passing the strings
- */
-export function stringInserted() {
-  return {
-    type: INSERT_STRING_SUCCESS,
-  };
-}
 
-export function stringInsertingError(error) {
-  return {
-    type: INSERT_STRING_ERROR,
-    error,
-  };
-}
-
-// export function updateValue(string) {
-//   return {
-//     type: UPDATE_VALUE,
-//     string,
-//   };
-// }

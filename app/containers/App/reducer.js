@@ -16,7 +16,6 @@ import {
   LOAD_STRINGS_SUCCESS,
   LOAD_STRINGS,
   LOAD_STRINGS_ERROR,
-  UPDATE_VALUE,
 } from './constants';
 
 // The initial state of the App
@@ -26,11 +25,6 @@ const initialState = fromJS({
     error: false,
     items: [],
   },
-  // insert: {
-  //   currentString: '',
-  //   isInserting: false,
-  //   error: false,
-  // },
 });
 
 function appReducer(state = initialState, action) {
@@ -48,8 +42,6 @@ function appReducer(state = initialState, action) {
       return state
         .setIn(['strings', 'error'], action.error)
         .setIn(['strings', 'loading'], false);
-    // case UPDATE_VALUE:
-    //   return state.setIn(['insert', 'currentString'], action.string);
     default:
       return state;
   }
