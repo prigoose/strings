@@ -31,12 +31,10 @@ export class HomePagePriya extends React.Component {
   }
   render() {
     const { loading, error, strings } = this.props;
+    const listItems = strings.map(item => <Item>{item.string}</Item>);
     return (
       <div>
-        <List>
-          <Item> Example item </Item>
-          <Item> Example item #2 </Item>
-        </List>
+        <List>{listItems}</List>
       </div>
     );
   }

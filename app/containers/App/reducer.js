@@ -23,7 +23,7 @@ const initialState = fromJS({
   loading: false,
   error: false,
   currentString: false,
-  strings: false,
+  strings: [],
 });
 
 function appReducer(state = initialState, action) {

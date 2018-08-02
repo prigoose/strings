@@ -18,7 +18,7 @@ export const initialState = fromJS({
 function homePagePriyaReducer(state = initialState, action) {
   switch (action.type) {
     case GET_STRINGS:
-      return ; // can i call a get req from here???
+      return; // can i call a get req from here???
     default:
       return state;
   }

@@ -14,7 +14,7 @@ import { initialState } from './reducer';
 const makeSelectUpdateData = () =>
   createSelector(
     state => state.get('homePagePriya', initialState),
-    homeState => homeState.get('updateData')
+    homeState => homeState.get('updateData'),
   );
 
 export { makeSelectUpdateData };
