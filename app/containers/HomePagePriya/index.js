@@ -27,10 +27,11 @@ import saga from './saga';
 /* eslint-disable react/prefer-stateless-function */
 export class HomePagePriya extends React.Component {
   componentDidMount() {
-    this.props.onSubmitForm();
+    this.props.loadStrings();
   }
   render() {
     const { loading, error, strings } = this.props;
+    // To do: add unique key
     const listItems = strings.map(item => <Item>{item.string}</Item>);
     return (
       <div>
@@ -44,8 +45,10 @@ export class HomePagePriya extends React.Component {
 HomePagePriya.propTypes = {
   loading: PropTypes.bool,
   error: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
-  strings: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
-  onSubmitForm: PropTypes.func,
+  // To investigate: why is strings sometimes an obj?
+  // (it should be an array)
+  strings: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+  loadStrings: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -56,10 +59,7 @@ const mapStateToProps = createStructuredSelector({
 
 function mapDispatchToProps(dispatch) {
   return {
-    onSubmitForm: evt => {
-      if (evt !== undefined && evt.preventDefault) evt.preventDefault();
-      dispatch(loadStrings());
-    },
+    loadStrings: () => dispatch(loadStrings()),
   };
 }
 

@@ -4,4 +4,4 @@
  *
  */
 
-export const SUBMIT_STRING = 'app/SubmitPageGenerator/SUBMIT_STRING';
+export const CHANGE_STRING = 'app/SubmitPageGenerator/CHANGE_STRING';

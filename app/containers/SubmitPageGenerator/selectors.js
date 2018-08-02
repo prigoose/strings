@@ -1,23 +1,12 @@
 import { createSelector } from 'reselect';
 import { initialState } from './reducer';
 
-/**
- * Direct selector to the submitPageGenerator state domain
- */
+// const selectSubmitPageGenerator = state =>
+//   state.get('submitPageGenerator', initialState);
 
-const selectSubmitPageGeneratorDomain = state =>
-  state.get('submitPageGenerator', initialState);
+const makeSelectCurrentString = () =>
+  createSelector(initialState => initialState.currentString, 
+    currentString => currentString,
+  );
 
-/**
- * Other specific selectors
- */
-
-/**
- * Default selector used by SubmitPageGenerator
- */
-
-const makeSelectSubmitPageGenerator = () =>
-  createSelector(selectSubmitPageGeneratorDomain, substate => substate.toJS());
-
-export default makeSelectSubmitPageGenerator;
-export { selectSubmitPageGeneratorDomain };
+export { makeSelectCurrentString };

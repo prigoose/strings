@@ -12,20 +12,30 @@ import { compose } from 'redux';
 
 import Input from 'components/Input';
 import injectReducer from 'utils/injectReducer';
-import makeSelectSubmitPageGenerator from './selectors';
-import { submitString } from './actions';
+import {
+  makeSelectInsertingToDb,
+  makeSelectDbError,
+  makeSelectValue,
+} from 'containers/App/selectors';
+import { submitString } from 'containers/App/actions';
+import { changeString } from './actions';
+import { makeSelectCurrentString } from './selectors';
 import reducer from './reducer';
 
 class SubmitPageGenerator extends React.PureComponent {
-  onSubmitForm(e) {
-    e.preventDefault();
-    console.log('testing 1 2 3');
-  }
   render() {
     return (
       <div>
-        <form onSubmit={this.props.onSubmitForm}>
-          <Input text type="text" name="string" placeholder="Input anything" />
+        <form onSubmit={evt => this.props.onSubmitForm(evt)}>
+          <Input
+            text
+            type="text"
+            id="inputString"
+            name="string"
+            placeholder="Input anything"
+            value={this.props.currentString}
+            onChange={this.props.onChangeString}
+          />
           <br />
           <Input type="submit" value="Submit" />
         </form>
@@ -37,16 +47,28 @@ class SubmitPageGenerator extends React.PureComponent {
 SubmitPageGenerator.propTypes = {
   dispatch: PropTypes.func.isRequired,
   onSubmitForm: PropTypes.func,
+  onChangeString: PropTypes.func,
+  currentString: PropTypes.string,
 };
 
 const mapStateToProps = createStructuredSelector({
-  submitpagegenerator: makeSelectSubmitPageGenerator(),
+  // string: makeSelectCurrentString(),
+  // posting: makeSelectInsertingToDb(),
+  // error: makeSelectDbError(),
+  currentString: makeSelectCurrentString(),
 });
 
 function mapDispatchToProps(dispatch) {
   return {
+    onChangeString: evt => {
+      evt.preventDefault();
+      console.log('in change string: ', evt.target.value);
+      dispatch(changeString(evt.target.value));
+    },
     onSubmitForm: evt => {
       if (evt !== undefined && evt.preventDefault) evt.preventDefault();
+      // const value = event.target.find([name='string'].val);
+      console.log('submitString', submitString());
       dispatch(submitString());
     },
   };

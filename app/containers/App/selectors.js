@@ -9,16 +9,34 @@ const selectGlobal = state => state.get('global');
 const selectRoute = state => state.get('route');
 
 const makeSelectCurrentString = () =>
-  createSelector(selectGlobal, globalState => globalState.get('currentString'));
+  createSelector(selectGlobal, globalState =>
+    globalState.getIn(['insert', 'currentString']),
+  );
 
 const makeSelectLoading = () =>
-  createSelector(selectGlobal, globalState => globalState.get('loading'));
+  createSelector(selectGlobal, globalState =>
+    globalState.getIn(['strings', 'loading']),
+  );
+
+const makeSelectInsertingToDb = () =>
+  createSelector(selectGlobal, globalState =>
+    globalState.getIn(['insert', 'isInserting']),
+  );
 
 const makeSelectError = () =>
-  createSelector(selectGlobal, globalState => globalState.get('error'));
+  createSelector(selectGlobal, globalState =>
+    globalState.getIn(['strings', 'error']),
+  );
+
+const makeSelectDbError = () =>
+  createSelector(selectGlobal, globalState =>
+    globalState.getIn(['insert', 'error']),
+  );
 
 const makeSelectStrings = () =>
-  createSelector(selectGlobal, globalState => globalState.get('strings'));
+  createSelector(selectGlobal, globalState =>
+    globalState.getIn(['strings', 'items']),
+  );
 
 const makeSelectLocation = () =>
   createSelector(selectRoute, routeState => routeState.get('location').toJS());
@@ -27,7 +45,9 @@ export {
   selectGlobal,
   makeSelectCurrentString,
   makeSelectLoading,
+  makeSelectInsertingToDb,
   makeSelectError,
+  makeSelectDbError,
   makeSelectStrings,
   makeSelectLocation,
 };

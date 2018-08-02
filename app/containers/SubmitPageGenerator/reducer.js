@@ -5,14 +5,17 @@
  */
 
 import { fromJS } from 'immutable';
-import { SUBMIT_STRING } from './constants';
 
-export const initialState = fromJS({});
+import { CHANGE_STRING } from './constants';
+
+export const initialState = fromJS({
+  currentString: '',
+});
 
 function submitPageGeneratorReducer(state = initialState, action) {
   switch (action.type) {
-    case SUBMIT_STRING:
-      return state;
+    case CHANGE_STRING:
+      return state.set('currentString', action.string);
     default:
       return state;
   }

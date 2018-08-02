@@ -19,6 +19,10 @@ import {
   LOAD_STRINGS,
   LOAD_STRINGS_SUCCESS,
   LOAD_STRINGS_ERROR,
+  INSERT_STRING,
+  INSERT_STRING_SUCCESS,
+  INSERT_STRING_ERROR,
+  UPDATE_VALUE,
 } from './constants';
 
 /**
@@ -52,3 +56,42 @@ export function stringLoadingError(error) {
     error,
   };
 }
+
+/**
+ * Load the strings, this action starts the request saga
+ *
+ * @return {object} An action object with a type of INSERT_STRING
+ */
+export function submitString(string) {
+  return {
+    type: INSERT_STRING,
+    string,
+  };
+}
+
+/**
+ * Dispatched when the string is inserting into the database
+ *
+ * @param  {string} string The data
+ *
+ * @return {object}      An action object with a type of LOAD_STRINGS_SUCCESS passing the strings
+ */
+export function stringInserted() {
+  return {
+    type: INSERT_STRING_SUCCESS,
+  };
+}
+
+export function stringInsertingError(error) {
+  return {
+    type: INSERT_STRING_ERROR,
+    error,
+  };
+}
+
+// export function updateValue(string) {
+//   return {
+//     type: UPDATE_VALUE,
+//     string,
+//   };
+// }
