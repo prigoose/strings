@@ -1,9 +1,8 @@
-import { call, put, select, takeEvery } from 'redux-saga/effects';
+import { call, put, takeEvery } from 'redux-saga/effects';
 import { LOAD_STRINGS } from 'containers/App/constants';
 import { stringsLoaded, stringLoadingError } from 'containers/App/actions';
 
 import request from 'utils/request';
-// import { makeSelectUpdateData } from 'containers/HomePage/selectors';
 
 /**
  * Strings request/response handler

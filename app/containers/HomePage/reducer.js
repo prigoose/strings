@@ -1,6 +1,6 @@
 /*
  *
- * HomePagePriya reducer
+ * HomePage reducer
  *
  */
 
@@ -15,7 +15,7 @@ export const initialState = fromJS({
   updateData: true,
 });
 
-function homePagePriyaReducer(state = initialState, action) {
+function homePageReducer(state = initialState, action) {
   switch (action.type) {
     case GET_STRINGS:
       return; // can i call a get req from here???
@@ -24,4 +24,4 @@ function homePagePriyaReducer(state = initialState, action) {
   }
 }
 
-export default homePagePriyaReducer;
+export default homePageReducer;

@@ -60,7 +60,6 @@ export function stringLoadingError(error) {
  * @return {object} An action object with a type of INSERT_STRING
  */
 export function postStringToDb() {
-  console.log('in postStringToDb action');
   return {
     type: POST_STRING_TO_DB,
   };

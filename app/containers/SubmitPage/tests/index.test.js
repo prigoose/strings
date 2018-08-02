@@ -1,9 +1,9 @@
 // import React from 'react';
 // import { shallow } from 'enzyme';
 
-// import { SubmitPageGenerator } from '../index';
+// import { SubmitPage } from '../index';
 
-describe('<SubmitPageGenerator />', () => {
+describe('<SubmitPage />', () => {
   it('Expect to have unit tests specified', () => {
     expect(true).toEqual(false);
   });

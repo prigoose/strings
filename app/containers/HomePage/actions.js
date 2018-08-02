@@ -1,6 +1,6 @@
 /*
  *
- * HomePagePriya actions
+ * HomePage actions
  *
  */
 
