@@ -41,7 +41,7 @@ export default function configureStore(initialState = {}, history) {
 
   // Extensions
   store.runSaga = sagaMiddleware.run;
-  sagas.map(store.runSaga)
+  sagas.map(store.runSaga);
   store.injectedReducers = {}; // Reducer registry
   store.injectedSagas = {}; // Saga registry
 

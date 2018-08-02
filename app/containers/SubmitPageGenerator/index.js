@@ -67,7 +67,7 @@ function mapDispatchToProps(dispatch) {
     onSubmitForm: evt => {
       if (evt !== undefined && evt.preventDefault) evt.preventDefault();
       // const value = event.target.find([name='string'].val);
-      console.log('in onSubmitForm')
+      console.log('in onSubmitForm');
       dispatch(postStringToDb());
     },
   };

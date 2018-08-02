@@ -2,9 +2,6 @@
 import HomePageSaga from 'containers/HomePagePriya/saga';
 import SubmitSaga from 'containers/SubmitPageGenerator/saga';
 
-const sagas = [
-  HomePageSaga,
-  SubmitSaga,
-];
+const sagas = [HomePageSaga, SubmitSaga];
 
 export default sagas;

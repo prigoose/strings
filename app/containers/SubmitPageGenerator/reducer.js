@@ -19,7 +19,7 @@ function submitPageGeneratorReducer(state = initialState, action) {
     case CHANGE_STRING:
       return state.set('currentString', action.string);
     case POST_STRING_TO_DB:
-      console.log('in submitPageGeneratorReducer')
+      console.log('in submitPageGeneratorReducer');
       return state.set('loading', true);
     default:
       return state;

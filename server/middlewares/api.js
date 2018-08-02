@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+var bodyParser = require('body-parser');
+router.use(bodyParser.json());
 
 const pgp = require('pg-promise')();
 const db = pgp('postgres://@localhost:5432/Strings');
@@ -9,6 +11,10 @@ router.use((req, res, next) => {
   next();
 });
 
+/* Placeholder; Did not end up using because the 
+ * UI needed such simple data, it was more straightforward to 
+ * grab directly from localhost:3000/strings
+ */
 router.get('/', (req, res) => {
   db.many('SELECT * FROM Strings;')
     .then(data => {
@@ -21,10 +27,9 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  console.log('req is: ', req);
   // once I add get request to front-end, decide/figure out how data is coming through
   // use 'query'?
-  db.none('INSERT INTO Strings VALUES($1)', ['yik yak'])
+  db.none('INSERT INTO Strings VALUES($1)', [req.body.string])
     .then(() => {
       console.log('String successfully inserted into database');
       res.end();
