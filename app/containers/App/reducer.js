@@ -24,6 +24,7 @@ const initialState = fromJS({
     loading: false,
     error: false,
     items: [],
+    load: true,
   },
 });
 

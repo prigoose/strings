@@ -54,7 +54,7 @@ const mapStateToProps = createStructuredSelector({
   error: makeSelectError(),
 });
 
-function mapDispatchToProps(dispatch) {
+export function mapDispatchToProps(dispatch) {
   return {
     loadStrings: () => dispatch(loadStrings()),
   };
