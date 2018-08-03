@@ -1,10 +1,9 @@
-import { call, put, takeLatest } from 'redux-saga/effects';
+import { call, put, takeEvery } from 'redux-saga/effects';
 import { LOAD_STRINGS } from 'containers/App/constants';
 import { stringsLoaded, stringLoadingError } from 'containers/App/actions';
 import request from 'utils/request';
 
 import stringData, { getStrings, requestURL } from '../saga';
-
 
 const strings = [
   {
@@ -21,24 +20,28 @@ describe('successful call to getStrings Saga', () => {
     expect(getStringsGenerator.next().value).toEqual(call(request, requestURL));
   });
   it('should dispatch action once strings load', () => {
-    expect(getStringsGenerator.next(strings).value).toEqual(put(stringsLoaded(strings)));
+    expect(getStringsGenerator.next(strings).value).toEqual(
+      put(stringsLoaded(strings)),
+    );
   });
   it('should be finished', () => {
     expect(getStringsGenerator.next().done).toEqual(true);
   });
 });
 
-// TO DO: research how to appropriately test a failed call.
-// describe('failed call to getStrings Saga', () => {
-//   const getStringsGenerator2 = getStrings();
-//   it('should not match a request to a bad URL', () => {
-//     expect(getStringsGenerator2.next().value).toNotEqual(call(request, 'http://xyz.com'));
-//   });
-//   const error = call(request, 'http://xyz.com');
-//   it('should error', () => {
-//     expect(getStringsGenerator2.next().next(error)).toEqual(put(stringLoadingError(error)));
-//   });
-//   it('should be finished', () => {
-//     expect(getStringsGenerator2.next().done).toEqual(true);
-//   });
-// });
+describe('failed call to getStrings Saga', () => {
+  const failedGetStringsGenerator = getStrings();
+  failedGetStringsGenerator.next();
+  it('should handle errors appropriately', () => {
+    expect(failedGetStringsGenerator.throw('error').value).toEqual(put(stringLoadingError('error')));
+  });
+});
+
+describe('stringData Saga', () => {
+  const stringDataSaga = stringData();
+
+  it('should start task to watch for LOAD_STRINGS action', () => {
+    const takeEveryDescriptor = stringDataSaga.next().value;
+    expect(takeEveryDescriptor).toEqual(takeEvery(LOAD_STRINGS, getStrings));
+  });
+});
