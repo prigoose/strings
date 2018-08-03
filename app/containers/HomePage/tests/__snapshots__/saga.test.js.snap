@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getStrings Saga should dispatch the stringsLoaded action if it requests the data successfully 1`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "CALL": Object {
+    "args": Array [
+      "http://localhost:3000/strings",
+    ],
+    "context": null,
+    "fn": [Function],
+  },
+}
+`;
+
+exports[`getStrings Saga should dispatch the stringsLoaded action if it requests the data successfully 2`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "PUT": Object {
+    "action": Object {
+      "strings": Array [
+        Object {
+          "string": "HelloKitty",
+        },
+        Object {
+          "string": "Priya Ghose",
+        },
+      ],
+      "type": "strings/App/LOAD_STRINGS_SUCCESS",
+    },
+    "channel": null,
+  },
+}
+`;

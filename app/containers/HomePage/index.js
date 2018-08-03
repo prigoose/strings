@@ -34,7 +34,7 @@ export class HomePage extends PureComponent {
     };
     return (
       <div>
-        <List {...listProps}/>
+        <List {...listProps} />
       </div>
     );
   }

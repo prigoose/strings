@@ -14,7 +14,7 @@ export function* insertString() {
 
   // to do: add error handling, make use of async
   yield post(requestURL, currentString);
-  yield put({type: CHANGE_STRING, string: ''})
+  yield put({ type: CHANGE_STRING, string: '' });
 }
 
 /**

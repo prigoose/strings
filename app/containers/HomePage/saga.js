@@ -4,11 +4,12 @@ import { stringsLoaded, stringLoadingError } from 'containers/App/actions';
 
 import request from 'utils/request';
 
+export const requestURL = `http://localhost:3000/strings`;
+
 /**
  * Strings request/response handler
  */
 export function* getStrings() {
-  const requestURL = `http://localhost:3000/strings`;
   try {
     // Call our request helper (see 'utils/request')
     const strings = yield call(request, requestURL);
