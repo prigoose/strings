@@ -4,37 +4,37 @@
  *
  */
 
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 
 import injectSaga from 'utils/injectSaga';
-import injectReducer from 'utils/injectReducer';
-import List from 'components/Ul';
-import Item from 'components/ListItem';
+import List from 'components/StringsList';
 import {
   makeSelectStrings,
   makeSelectLoading,
   makeSelectError,
 } from 'containers/App/selectors';
 import { loadStrings } from '../App/actions';
-import reducer from './reducer';
 import saga from './saga';
 
 /* eslint-disable react/prefer-stateless-function */
-export class HomePage extends React.Component {
+export class HomePage extends PureComponent {
   componentDidMount() {
     this.props.loadStrings();
   }
   render() {
     const { loading, error, strings } = this.props;
-    // To do: add unique key
-    const listItems = strings.map(item => <Item>{item.string}</Item>);
+    const listProps = {
+      loading,
+      error,
+      strings,
+    };
     return (
       <div>
-        <List>{listItems}</List>
+        <List {...listProps}/>
       </div>
     );
   }
@@ -65,11 +65,9 @@ const withConnect = connect(
   mapDispatchToProps,
 );
 
-const withReducer = injectReducer({ key: 'homePagePriya', reducer });
-const withSaga = injectSaga({ key: 'homePagePriya', saga });
+const withSaga = injectSaga({ key: 'homePage', saga });
 
 export default compose(
-  withReducer,
   withSaga,
   withConnect,
 )(HomePage);

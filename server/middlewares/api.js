@@ -27,8 +27,6 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  // once I add get request to front-end, decide/figure out how data is coming through
-  // use 'query'?
   db.none('INSERT INTO Strings VALUES($1)', [req.body.string])
     .then(() => {
       console.log('String successfully inserted into database');

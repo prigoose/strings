@@ -109,6 +109,7 @@
     ]
   },
   "jest": {
+    "testURL": "http://localhost/",
     "collectCoverageFrom": [
       "app/**/*.{js,jsx}",
       "!app/**/*.test.{js,jsx}",
@@ -223,6 +224,7 @@
     "husky": "0.14.3",
     "image-webpack-loader": "4.3.1",
     "imports-loader": "0.8.0",
+    "jest": "^23.4.2",
     "jest-cli": "23.1.0",
     "jest-styled-components": "5.0.1",
     "lint-staged": "7.2.0",

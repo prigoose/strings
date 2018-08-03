@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
@@ -17,7 +17,7 @@ import { changeString } from './actions';
 import { makeSelectCurrentString } from './selectors';
 import reducer from './reducer';
 
-class SubmitPage extends React.PureComponent {
+class SubmitPage extends PureComponent {
   render() {
     return (
       <div>

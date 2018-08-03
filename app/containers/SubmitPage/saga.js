@@ -1,6 +1,7 @@
-import { select, takeEvery } from 'redux-saga/effects';
+import { put, select, takeEvery } from 'redux-saga/effects';
 import { makeSelectCurrentString } from 'containers/SubmitPage/selectors';
 import { POST_STRING_TO_DB } from 'containers/App/constants';
+import { CHANGE_STRING } from './constants';
 import post from 'utils/post';
 
 /**
@@ -11,8 +12,9 @@ export function* insertString() {
   const currentString = yield select(makeSelectCurrentString());
   const requestURL = `http://localhost:3000/strings`;
 
-  const postAttempt = yield post(requestURL, currentString);
-  // to do: add error handling
+  // to do: add error handling, make use of async
+  yield post(requestURL, currentString);
+  yield put({type: CHANGE_STRING, string: ''})
 }
 
 /**

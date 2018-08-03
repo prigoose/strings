@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
 // placeholder for future styling
-const List = styled.ul``;
+const Ul = styled.ul``;
 
-export default List;
+export default Ul;
