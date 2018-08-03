@@ -1,8 +1,6 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
-import { IntlProvider } from 'react-intl';
+import { mount } from 'enzyme';
 
-import List from 'components/Ul';
 import { HomePage, mapDispatchToProps } from '../index';
 import { loadStrings } from '../../App/actions';
 

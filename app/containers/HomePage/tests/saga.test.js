@@ -33,7 +33,9 @@ describe('failed call to getStrings Saga', () => {
   const failedGetStringsGenerator = getStrings();
   failedGetStringsGenerator.next();
   it('should handle errors appropriately', () => {
-    expect(failedGetStringsGenerator.throw('error').value).toEqual(put(stringLoadingError('error')));
+    expect(failedGetStringsGenerator.throw('error').value).toEqual(
+      put(stringLoadingError('error')),
+    );
   });
 });
 

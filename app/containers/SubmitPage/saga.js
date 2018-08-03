@@ -1,8 +1,8 @@
 import { put, select, takeEvery } from 'redux-saga/effects';
 import { makeSelectCurrentString } from 'containers/SubmitPage/selectors';
 import { POST_STRING_TO_DB } from 'containers/App/constants';
-import { CHANGE_STRING } from './constants';
 import post from 'utils/post';
+import { CHANGE_STRING } from './constants';
 
 /**
  * String request/response handler
