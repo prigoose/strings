@@ -25,7 +25,9 @@ Once installed, run the following commands from your terminal:
  
  ## Tests
 To run tests from the command line, install Jest globally via `npm install jest -g`. <br>This may require root access, e.g. `sudo npm install jest -g`.
-<br>To run the tests that I built (as opposed to tests that come pre-built with React Boilerplate), use `npm run test:priya`
+
+<br>I wrote tests for the Home Page container component.
+<br>To run the tests that I built (as opposed to tests that come pre-built with React Boilerplate), use `npm run test:priya`.
 
 ## Requirements
 - React Router.
